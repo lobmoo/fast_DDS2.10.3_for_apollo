@@ -1170,6 +1170,7 @@ public:
      */
     Cdr& serialize(
             const char* string_t);
+    Cdr& serialize(const char *string_t, size_t length);
 
     /*!
      * @brief This function serializes a wstring.
@@ -1190,6 +1191,7 @@ public:
     Cdr& serialize(
             const char* string_t,
             Endianness endianness);
+    Cdr& serialize(const char *string_t, size_t length, Endianness endianness);
 
     /*!
      * @brief This function serializes a wstring with a different endianness.
@@ -1212,7 +1214,7 @@ public:
     Cdr& serialize(
             const std::string& string_t)
     {
-        return serialize(string_t.c_str());
+        return serialize(string_t.c_str(), string_t.size());
     }
 
     /*!
@@ -1240,7 +1242,7 @@ public:
             const std::string& string_t,
             Endianness endianness)
     {
-        return serialize(string_t.c_str(), endianness);
+        return serialize(string_t.c_str(), string_t.size(), endianness);
     }
 
 #if HAVE_CXX0X
