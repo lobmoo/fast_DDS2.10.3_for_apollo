@@ -62,7 +62,7 @@ public:
 static void GetIP4s(
         std::vector<IPFinder::info_IP>& interfaces)
 {
-    IPFinder::getIPs(&interfaces, false);
+    IPFinder::getIPs(&interfaces, true);
     auto new_end = remove_if(interfaces.begin(),
                     interfaces.end(),
                     [](IPFinder::info_IP ip)
